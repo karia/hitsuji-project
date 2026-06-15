@@ -1,0 +1,17 @@
+{
+  "name": "hitsuji-project",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:images && npm run build:css",
+    "build:images": "node ./scripts/build-images.mjs",
+    "build:css": "tailwindcss -i ./src/input.css -o ./docs/assets/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./docs/assets/style.css --watch"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@tailwindcss/cli": "^4.1.12",
+    "prettier": "^3.6.0",
+    "sharp": "^0.34.4",
+    "tailwindcss": "^4.1.12"
+  }
+}

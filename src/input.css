@@ -118,12 +118,22 @@
   .hero-stage {
     position: relative;
     text-align: center;
+    padding-inline: 0.75rem;
   }
 
+  @media (min-width: 640px) {
+    .hero-stage {
+      padding-inline: 0;
+    }
+  }
+
+  /* タイトルロゴをキービジュアル左上の空き領域に重ねる */
   .hero-logo-wrap {
-    position: relative;
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    top: 4%;
+    left: 3%;
+    z-index: 2;
+    width: clamp(150px, 40%, 380px);
   }
 
   .hero-logo-wrap::before {
@@ -143,16 +153,20 @@
   .hero-logo {
     position: relative;
     z-index: 1;
-    width: clamp(260px, 78%, 720px);
+    width: 100%;
     height: auto;
-    filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55));
-    animation: hero-float 7.5s ease-in-out infinite;
+    /* ロゴ形状に沿った白フチ（背景のパーティクル上での視認性確保）＋落ち影 */
+    --logo-edge: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(2px 0 0 var(--logo-edge)) drop-shadow(-2px 0 0 var(--logo-edge))
+      drop-shadow(0 2px 0 var(--logo-edge)) drop-shadow(0 -2px 0 var(--logo-edge))
+      drop-shadow(1.4px 1.4px 0 var(--logo-edge)) drop-shadow(-1.4px 1.4px 0 var(--logo-edge))
+      drop-shadow(1.4px -1.4px 0 var(--logo-edge)) drop-shadow(-1.4px -1.4px 0 var(--logo-edge))
+      drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55));
   }
 
-  /* 太陽舟が宙に浮く演出：背後のホログラム調グロウ板＋ゆるい浮遊 */
+  /* 背後のホログラム調グロウ板 */
   .hero-image-wrap {
     position: relative;
-    animation: hero-float 6s ease-in-out infinite;
   }
 
   .hero-image-wrap::before {
@@ -170,6 +184,12 @@
     pointer-events: none;
   }
 
+  @media (max-width: 639px) {
+    .hero-image-wrap::before {
+      inset: -8px;
+    }
+  }
+
   .hero-image-wrap > .hero-image {
     position: relative;
     z-index: 1;
@@ -182,16 +202,6 @@
       0 0 0 1px rgba(0, 0, 0, 0.3),
       0 18px 45px rgba(0, 0, 0, 0.5),
       0 0 36px rgba(82, 208, 255, 0.15);
-  }
-
-  @keyframes hero-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
   }
 
   .hero-subtitle {
@@ -609,8 +619,6 @@
     .page-shell,
     .is-loading .page-shell,
     .reveal,
-    .hero-image-wrap,
-    .hero-logo,
     .site-body::before {
       animation: none !important;
       transition: none !important;

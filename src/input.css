@@ -417,6 +417,104 @@
     aspect-ratio: 16 / 7;
   }
 
+  /* ===== 画像キャプション ===== */
+  .img-caption {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* ===== 取扱説明書（折りたたみ） ===== */
+  .manual {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(18, 27, 60, 0.6);
+    overflow: hidden;
+  }
+
+  .manual-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 800;
+    color: var(--gold-soft);
+    background: rgba(82, 208, 255, 0.08);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .manual-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .manual-summary::after {
+    content: "▼";
+    margin-left: auto;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    transition: transform 0.2s ease;
+  }
+
+  .manual[open] .manual-summary::after {
+    transform: rotate(180deg);
+  }
+
+  .manual-summary:hover {
+    background: rgba(82, 208, 255, 0.14);
+    color: var(--gold);
+  }
+
+  .manual-body {
+    padding: 1rem 1.1rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .manual-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .manual-step-title {
+    margin-bottom: 0.25rem;
+    color: var(--cyan);
+    font-weight: 800;
+  }
+
+  .manual-download-soon {
+    margin-top: 0.4rem;
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border: 1px dashed rgba(82, 208, 255, 0.5);
+    border-radius: var(--radius);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+  }
+
+  .manual-body code {
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    background: rgba(82, 208, 255, 0.1);
+    border: 1px solid var(--border);
+    font-family: "SFMono-Regular", "Consolas", "Menlo", monospace;
+    font-size: 0.82em;
+    color: var(--ink);
+    word-break: break-all;
+  }
+
   /* ===== 画像拡大モーダル ===== */
   .image-modal {
     position: fixed;

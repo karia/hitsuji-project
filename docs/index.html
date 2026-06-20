@@ -173,15 +173,61 @@
                 <img
                   src="./assets/img/emblem.webp"
                   alt="島村建設宇宙事業部 エンブレム"
-                  class="h-16 w-16 object-contain sm:h-20 sm:w-20"
+                  class="h-32 w-32 object-contain sm:h-40 sm:w-40"
                   loading="lazy"
                   decoding="async"
                 />
               </span>
-              <p class="text-sm font-medium leading-relaxed text-[color:var(--ink-soft)] sm:text-base">
-                「島村建設宇宙事業部」が、マインクラフトの世界でお祝いの建築を製作中です。完成したスクリーンショットはこちらでお披露目します！
-              </p>
+              <div>
+                <p class="text-sm font-bold leading-relaxed text-[color:var(--ink)] sm:text-base">
+                  今年のお誕生日を楽しんでいただくため、あのマイクラお誕生日ワールドが返ってきました！
+                </p>
+                <p class="mt-1 text-xs font-medium text-[color:var(--ink-soft)] sm:text-sm">
+                  ※推定プレイ時間 1時間程度
+                </p>
+              </div>
             </div>
+            <details class="manual">
+              <summary class="manual-summary">📖 取扱説明書（クリックして開く）</summary>
+              <div class="manual-body">
+                <ol class="manual-steps">
+                  <li>
+                    <p class="manual-step-title">1. ダウンロード</p>
+                    <p>
+                      ワールドデータのダウンロードは以下の Google ドライブのリンク先から行うことができます！
+                    </p>
+                    <!-- TODO: 公開当日（6/25）に Google ドライブのダウンロードリンクを設定する -->
+                    <p class="manual-download-soon">ダウンロードリンク：6月25日 公開予定</p>
+                  </li>
+                  <li>
+                    <p class="manual-step-title">2. zip ファイルの展開</p>
+                    <p>
+                      ダウンロードした zip ファイルの中に <code>charlotte2026</code> フォルダが入っています。
+                    </p>
+                  </li>
+                  <li>
+                    <p class="manual-step-title">3. マインクラフト環境へインストール</p>
+                    <p>
+                      <code>charlotte2026</code> フォルダをマインクラフトの saves フォルダ（デフォルトであれば
+                      <code>C:\Users\(ユーザー名)\AppData\Roaming\.minecraft\saves</code>
+                      のディレクトリにあります）へ移動してインストールできます。
+                    </p>
+                  </li>
+                  <li>
+                    <p class="manual-step-title">
+                      4. マインクラフトを起動して、推奨設定を確認してワールドをプレイ！
+                    </p>
+                    <p>
+                      本ワールドは Minecraft Java Edition バージョン 26.1 にて作成されています。26.2
+                      での動作チェックも行っていますが、万全に遊ぶのであれば 26.1 を推奨します。
+                    </p>
+                    <p>
+                      今作の描画距離「12チャンク」を目安に作成されています。サウンドの設定も適宜調整をお願いいたします！
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </details>
             <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
               <!-- TODO: マイクラのスクリーンショットが届いたら、この枠を画像に差し替える -->
               <div class="shot-frame">COMING SOON</div>
@@ -223,18 +269,19 @@
               type="button"
               class="block w-full overflow-hidden rounded border border-[color:var(--border)] bg-white/5 p-2"
               data-expandable-image
-              data-image-src="./assets/img/enoshima-lightup.webp"
-              data-image-alt="江の島シーキャンドルのライトアップ例"
-              aria-label="ライトアップの写真を拡大表示"
+              data-image-src="./assets/img/enoshima.webp"
+              data-image-alt="昼間の江の島シーキャンドル"
+              aria-label="昼間の江の島シーキャンドルの写真を拡大表示"
             >
               <img
-                src="./assets/img/enoshima-lightup.webp"
-                alt="江の島シーキャンドルのライトアップ例"
+                src="./assets/img/enoshima.webp"
+                alt="昼間の江の島シーキャンドル"
                 class="h-auto w-full rounded"
                 loading="lazy"
                 decoding="async"
               />
             </button>
+            <p class="img-caption">▲昼間の江の島シーキャンドルの様子。夜になるとライトアップします！</p>
             <p class="text-xs leading-relaxed text-[color:var(--ink-soft)]">
               ※江の島シーキャンドル、および現地のサムエル・コッキング苑は閉演20:00（最終入場19:30）となっております。<br />
               当日近くまで見に行かれる方は、点灯時間と閉演時間が異なることを留意してお越しください。

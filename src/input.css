@@ -190,18 +190,62 @@
     }
   }
 
-  .hero-image-wrap > .hero-image {
+  /* キービジュアルの枠（背景・キャラの2レイヤーを内包） */
+  .hero-frame {
     position: relative;
     z-index: 1;
-  }
-
-  .hero-image {
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow:
       0 0 0 1px rgba(0, 0, 0, 0.3),
       0 18px 45px rgba(0, 0, 0, 0.5),
       0 0 36px rgba(82, 208, 255, 0.15);
+  }
+
+  /* 背景レイヤー（本流＝枠の高さを決める） */
+  .hero-bg-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* キャラレイヤー（背景に重ね、少し右へ寄せてデッドスペースを解消） */
+  .hero-char-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(4%);
+  }
+
+  /* ローディング解除後に 背景→キャラ→ロゴ の順でフェードイン */
+  .hero-bg-img,
+  .hero-char-img,
+  .hero-logo-wrap {
+    opacity: 0;
+  }
+
+  .site-body:not(.is-loading) .hero-bg-img {
+    animation: hero-layer-in 0.5s ease 0s both;
+  }
+
+  .site-body:not(.is-loading) .hero-char-img {
+    animation: hero-layer-in 0.5s ease 0.5s both;
+  }
+
+  .site-body:not(.is-loading) .hero-logo-wrap {
+    animation: hero-layer-in 0.5s ease 1s both;
+  }
+
+  @keyframes hero-layer-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .hero-subtitle {
@@ -619,6 +663,9 @@
     .page-shell,
     .is-loading .page-shell,
     .reveal,
+    .hero-bg-img,
+    .hero-char-img,
+    .hero-logo-wrap,
     .site-body::before {
       animation: none !important;
       transition: none !important;
@@ -628,6 +675,10 @@
     }
     .site-body::before {
       opacity: 0.5 !important;
+    }
+    /* 右寄せ（モーション無効でも位置は維持） */
+    .hero-char-img {
+      transform: translateX(4%) !important;
     }
   }
 }

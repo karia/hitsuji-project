@@ -49,25 +49,20 @@ const buildDisplayWebp = async (outName, srcName, maxWidth) => {
     .toFile(outputPath);
 };
 
-// 透過キービジュアル（Charlotte）を青いパーティクル背景に重ねてヒーロー画像を合成
-const buildHeroWebp = async () => {
-  const backgroundPath = await resolveSource("background");
-  const keyVisualPath = await resolveSource("key-visual");
-  const outputPath = path.join(webpDir, "hero.webp");
+// ヒーローを背景・キャラの2レイヤーで出力（合成せず、CSSで重ねて順次フェードインするため）
+const buildHeroLayers = async () => {
   const heroWidth = 1600;
-  // 背景と立ち絵を同一サイズへ揃えてから重ねる
-  const background = await sharp(backgroundPath)
+  const backgroundPath = await resolveSource("background");
+  await sharp(backgroundPath)
     .resize({ width: heroWidth, withoutEnlargement: true })
-    .toBuffer();
-  const { width, height } = await sharp(background).metadata();
-  const keyVisual = await sharp(keyVisualPath)
-    .ensureAlpha()
-    .resize({ width, height, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .toBuffer();
-  await sharp(background)
-    .composite([{ input: keyVisual }])
     .webp({ quality: 84 })
-    .toFile(outputPath);
+    .toFile(path.join(webpDir, "hero-bg.webp"));
+  const keyVisualPath = await resolveSource("key-visual");
+  await sharp(keyVisualPath)
+    .ensureAlpha()
+    .resize({ width: heroWidth, withoutEnlargement: true })
+    .webp({ quality: 84 })
+    .toFile(path.join(webpDir, "hero-char.webp"));
 };
 
 const buildDownloadPng = async (name) => {
@@ -92,7 +87,7 @@ const buildFaviconPng = async () => {
 const main = async () => {
   await Promise.all([ensureDir(webpDir), ensureDir(downloadsDir), ensureDir(iconsDir)]);
 
-  await buildHeroWebp();
+  await buildHeroLayers();
 
   for (const [outName, srcName, maxWidth] of displayImages) {
     await buildDisplayWebp(outName, srcName, maxWidth);
@@ -106,7 +101,7 @@ const main = async () => {
 
   console.log(
     "Built optimized images:",
-    `1 hero webp + ${displayImages.length} display webp + ${downloadNames.length} download png + 1 favicon png`,
+    `2 hero layer webp + ${displayImages.length} display webp + ${downloadNames.length} download png + 1 favicon png`,
   );
 };
 

@@ -479,12 +479,6 @@
     color: var(--ink-soft);
   }
 
-  .manual-lead {
-    margin-bottom: 0.9rem;
-    color: var(--ink);
-    font-weight: 700;
-  }
-
   .manual-steps {
     display: flex;
     flex-direction: column;
@@ -495,13 +489,6 @@
     margin-bottom: 0.25rem;
     color: var(--cyan);
     font-weight: 800;
-  }
-
-  .manual-note {
-    margin-top: 0.2rem;
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    opacity: 0.85;
   }
 
   .manual-download-soon {

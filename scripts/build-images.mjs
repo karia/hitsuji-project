@@ -12,6 +12,7 @@ const iconsDir = path.join(root, "docs/assets/icons");
 const displayImages = [
   ["logo", "logo", 1000],
   ["emblem", "emblem", 360],
+  ["enoshima-lightup", "enoshima-lightup", 1200],
   ["letter", "letter", 1200],
   ["sheep-letter", "sheep-letter", 480],
   ["sheep-build", "sheep-build", 480],

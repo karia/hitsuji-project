@@ -241,6 +241,75 @@
     filter: drop-shadow(0 6px 12px rgba(0, 64, 152, 0.12));
   }
 
+  /* ===== 企画紹介の項目 ===== */
+  .project-item {
+    border: 2px solid var(--border);
+    border-radius: 1.25rem;
+    background: #f1f7ff;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  a.project-item:hover {
+    background: #e2efff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 64, 152, 0.14);
+  }
+
+  .project-item--soon {
+    border-style: dashed;
+    opacity: 0.9;
+  }
+
+  .project-icon {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .project-name {
+    display: block;
+    font-weight: 800;
+    color: var(--ink-strong);
+  }
+
+  .project-desc {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* ===== スクリーンショット枠（プレースホルダ） ===== */
+  .shot-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    border: 2px dashed rgba(0, 64, 152, 0.3);
+    border-radius: 1rem;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(0, 64, 152, 0.04) 0,
+      rgba(0, 64, 152, 0.04) 10px,
+      rgba(0, 64, 152, 0.08) 10px,
+      rgba(0, 64, 152, 0.08) 20px
+    );
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .shot-frame--wide {
+    aspect-ratio: 16 / 7;
+  }
+
   /* ===== 画像拡大モーダル ===== */
   .image-modal {
     position: fixed;

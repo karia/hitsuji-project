@@ -10,6 +10,8 @@ const iconsDir = path.join(root, "docs/assets/icons");
 
 // 表示用 WebP: [出力名, 元画像名(拡張子なし), 最大幅]
 const displayImages = [
+  ["logo", "logo", 1000],
+  ["emblem", "emblem", 360],
   ["letter", "letter", 1200],
   ["sheep-letter", "sheep-letter", 480],
   ["sheep-build", "sheep-build", 480],
@@ -74,7 +76,7 @@ const buildDownloadPng = async (name) => {
 };
 
 const buildFaviconPng = async () => {
-  const inputPath = await resolveSource("sheep-wait");
+  const inputPath = await resolveSource("emblem");
   const outputPath = path.join(iconsDir, "favicon.png");
   await sharp(inputPath)
     .resize(96, 96, {

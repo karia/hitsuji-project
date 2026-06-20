@@ -66,11 +66,6 @@
               >
             </li>
             <li>
-              <a href="#letter" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >お手紙</a
-              >
-            </li>
-            <li>
               <a href="#minecraft" class="nav-link inline-flex w-full items-center justify-center py-2"
                 >マイクラ</a
               >
@@ -78,6 +73,11 @@
             <li>
               <a href="#lightup" class="nav-link inline-flex w-full items-center justify-center py-2"
                 >ライトアップ</a
+              >
+            </li>
+            <li>
+              <a href="#letter" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >お手紙</a
               >
             </li>
             <li>
@@ -109,22 +109,7 @@
             <p class="text-sm font-medium leading-relaxed text-[color:var(--ink-soft)] sm:text-base">
               今年のお誕生日も、ひつじみんなでお祝いします。それぞれの企画はこちら！
             </p>
-            <ul class="grid gap-4 sm:grid-cols-2">
-              <li>
-                <a href="#letter" class="project-item flex items-center gap-4 p-4">
-                  <img
-                    src="./assets/img/sheep-letter.webp"
-                    alt=""
-                    class="project-icon"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span>
-                    <span class="project-name">お手紙企画</span>
-                    <span class="project-desc">お祝いのお手紙を、みんなで集めました。</span>
-                  </span>
-                </a>
-              </li>
+            <ul class="grid gap-4 sm:grid-cols-3">
               <li>
                 <a href="#minecraft" class="project-item flex items-center gap-4 p-4">
                   <img
@@ -158,65 +143,21 @@
                 </a>
               </li>
               <li>
-                <div class="project-item project-item--soon flex items-center gap-4 p-4">
+                <a href="#letter" class="project-item flex items-center gap-4 p-4">
                   <img
-                    src="./assets/img/sheep-wait.webp"
+                    src="./assets/img/sheep-letter.webp"
                     alt=""
                     class="project-icon"
                     loading="lazy"
                     decoding="async"
                   />
                   <span>
-                    <span class="project-name">そのほかの企画</span>
-                    <span class="project-desc">ほかにもお祝いを準備中…！ Coming Soon</span>
+                    <span class="project-name">お手紙企画</span>
+                    <span class="project-desc">お祝いのお手紙を、みんなで集めました。</span>
                   </span>
-                </div>
+                </a>
               </li>
             </ul>
-          </div>
-        </section>
-
-        <!-- ===== お手紙コーナー ===== -->
-        <section id="letter" class="card reveal">
-          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
-            <p class="eyebrow">Letter</p>
-            <h2 class="section-title text-2xl">お手紙企画</h2>
-          </div>
-          <div class="space-y-4 p-5 sm:p-7">
-            <p class="text-sm font-medium leading-relaxed text-[color:var(--ink-soft)] sm:text-base">
-              ひつじたちから、お祝いのお手紙をみんなで集めました。お手紙用の便せんはこちらです。
-            </p>
-            <div class="grid items-center gap-5 md:grid-cols-[1.1fr_1fr]">
-              <button
-                type="button"
-                class="block w-full overflow-hidden rounded border border-[color:var(--border)] bg-white/5 p-2"
-                data-expandable-image
-                data-image-src="./assets/img/letter.webp"
-                data-image-alt="島村シャルロットお誕生日プロジェクト2026 便せん"
-                aria-label="便せんを拡大表示"
-              >
-                <img
-                  src="./assets/img/letter.webp"
-                  alt="島村シャルロットお誕生日プロジェクト2026 便せん"
-                  class="mx-auto h-auto w-full max-w-sm rounded"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </button>
-              <div class="space-y-3">
-                <a
-                  href="./assets/downloads/letter.png"
-                  download
-                  class="btn-link flex items-center justify-between px-5 py-4 text-sm sm:text-base"
-                >
-                  <span>便せん（PNG）をダウンロード</span>
-                  <span aria-hidden="true">↘</span>
-                </a>
-                <p class="text-xs font-medium leading-relaxed text-[color:var(--ink-soft)]">
-                  クリックでプレビューを拡大できます。
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -298,6 +239,50 @@
               ※江の島シーキャンドル、および現地のサムエル・コッキング苑は閉演20:00（最終入場19:30）となっております。<br />
               当日近くまで見に行かれる方は、点灯時間と閉演時間が異なることを留意してお越しください。
             </p>
+          </div>
+        </section>
+
+        <!-- ===== お手紙コーナー ===== -->
+        <section id="letter" class="card reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <p class="eyebrow">Letter</p>
+            <h2 class="section-title text-2xl">お手紙企画</h2>
+          </div>
+          <div class="space-y-4 p-5 sm:p-7">
+            <p class="text-sm font-medium leading-relaxed text-[color:var(--ink-soft)] sm:text-base">
+              ひつじたちから、お祝いのお手紙をみんなで集めました。お手紙用の便せんはこちらです。
+            </p>
+            <div class="grid items-center gap-5 md:grid-cols-[1.1fr_1fr]">
+              <button
+                type="button"
+                class="block w-full overflow-hidden rounded border border-[color:var(--border)] bg-white/5 p-2"
+                data-expandable-image
+                data-image-src="./assets/img/letter.webp"
+                data-image-alt="島村シャルロットお誕生日プロジェクト2026 便せん"
+                aria-label="便せんを拡大表示"
+              >
+                <img
+                  src="./assets/img/letter.webp"
+                  alt="島村シャルロットお誕生日プロジェクト2026 便せん"
+                  class="mx-auto h-auto w-full max-w-sm rounded"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+              <div class="space-y-3">
+                <a
+                  href="./assets/downloads/letter.png"
+                  download
+                  class="btn-link flex items-center justify-between px-5 py-4 text-sm sm:text-base"
+                >
+                  <span>便せん（PNG）をダウンロード</span>
+                  <span aria-hidden="true">↘</span>
+                </a>
+                <p class="text-xs font-medium leading-relaxed text-[color:var(--ink-soft)]">
+                  クリックでプレビューを拡大できます。
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -353,11 +353,6 @@
       0 0 18px rgba(82, 208, 255, 0.2);
   }
 
-  .project-item--soon {
-    border-style: dashed;
-    opacity: 0.85;
-  }
-
   .project-icon {
     width: 56px;
     height: 56px;

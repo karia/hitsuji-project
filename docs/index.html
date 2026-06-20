@@ -1,14 +1,358 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hitsuji-project</title>
-    <link rel="stylesheet" href="./assets/style.css" />
+    <title>島村シャルロット 非公式お誕生日企画 2026</title>
+    <meta
+      name="description"
+      content="VTuber 島村シャルロットさんの非公式お誕生日企画。便せんをダウンロードしてお手紙を書こう！キービジュアルと企画紹介、島村シャルロットさんの紹介を掲載しています。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
+    <link rel="stylesheet" href="./assets/style.css?v=20260620-1" />
   </head>
-  <body>
-    <main>
-      <p>サイト作成予定地</p>
-    </main>
+  <body
+    class="site-body is-loading"
+    style="
+      font-family:
+        &quot;Noto Sans JP&quot;, &quot;Hiragino Kaku Gothic ProN&quot;, &quot;Yu Gothic&quot;,
+        &quot;Meiryo&quot;, sans-serif;
+    "
+  >
+    <div id="page-loader" class="page-loader" aria-hidden="true"></div>
+
+    <!-- 背景のひつじ装飾 -->
+    <div class="deco-layer" aria-hidden="true">
+      <img
+        class="sheep-deco"
+        src="./assets/img/sheep-letter.webp"
+        alt=""
+        style="top: 12%; left: 3%; transform: rotate(-6deg)"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="sheep-deco"
+        src="./assets/img/sheep-swim.webp"
+        alt=""
+        style="top: 34%; right: 2%; transform: rotate(5deg)"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="sheep-deco"
+        src="./assets/img/sheep-build.webp"
+        alt=""
+        style="top: 62%; left: 2%; transform: rotate(4deg)"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        class="sheep-deco"
+        src="./assets/img/sheep-wait.webp"
+        alt=""
+        style="top: 84%; right: 4%; transform: rotate(-4deg)"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+    <div class="page-shell">
+      <main class="site-main grid w-full gap-8 px-4 py-8 sm:px-6 lg:px-8">
+        <!-- ===== ヒーロー / キービジュアル ===== -->
+        <section class="hero-stage reveal pb-2 sm:pb-4">
+          <img
+            src="./assets/img/hero.webp"
+            alt="島村シャルロット お誕生日企画 2026 キービジュアル"
+            class="hero-image h-auto w-full rounded-3xl object-cover"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <h1
+            class="hero-title mt-5 text-center text-3xl font-medium leading-tight tracking-tight sm:text-5xl"
+            style="font-family: &quot;Mochiy Pop One&quot;, sans-serif"
+          >
+            島村シャルロット<br class="sm:hidden" />お誕生日企画 2026
+          </h1>
+          <p class="mt-4 flex flex-wrap items-center justify-center gap-2">
+            <span
+              class="hero-badge rounded-full px-4 py-1 text-sm font-extrabold tracking-[0.18em] sm:text-base"
+            >
+              HAPPY BIRTHDAY
+            </span>
+            <span class="text-base font-extrabold tracking-[0.2em] text-[color:var(--ink-strong)] sm:text-lg">
+              ★ 6.25
+            </span>
+          </p>
+        </section>
+
+        <!-- ===== 追従ナビ ===== -->
+        <nav aria-label="ページ内メニュー" class="site-nav reveal sticky top-3 z-20 p-2">
+          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <li>
+              <a href="#about-project" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >企画紹介</a
+              >
+            </li>
+            <li>
+              <a href="#letter" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >お手紙</a
+              >
+            </li>
+            <li>
+              <a href="#about-charlotte" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >シャルロットとは</a
+              >
+            </li>
+            <li>
+              <a href="#links" class="nav-link inline-flex w-full items-center justify-center py-2">リンク</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ===== リード文 ===== -->
+        <section class="site-note reveal p-5 sm:p-7">
+          <p
+            class="mx-auto max-w-3xl text-center text-base font-bold leading-relaxed text-[color:var(--ink-soft)] sm:text-lg"
+          >
+            6月25日はVTuber・島村シャルロットさんのお誕生日！<br />
+            ファン有志でお祝いするため、みんなでお手紙を書いて贈りましょう。
+          </p>
+        </section>
+
+        <!-- ===== 企画紹介 ===== -->
+        <section id="about-project" class="card reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">企画紹介</h2>
+          </div>
+          <div class="space-y-5 p-5 sm:p-7">
+            <p class="text-sm font-bold leading-relaxed sm:text-base">
+              この企画は、島村シャルロットさんのお誕生日を、ファン有志でお祝いするための<strong>非公式お手紙企画</strong>です。<br />
+              専用の便せんをダウンロードして、シャルロットさんへの「おめでとう」の気持ちをお手紙にしたためてください。
+            </p>
+            <ol class="grid gap-3 sm:grid-cols-3">
+              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
+                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 1</p>
+                <p class="mt-1 text-sm font-bold leading-relaxed">
+                  下の「お手紙」コーナーから便せんをダウンロード
+                </p>
+              </li>
+              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
+                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 2</p>
+                <p class="mt-1 text-sm font-bold leading-relaxed">
+                  印刷、または画像に直接お祝いメッセージを書く
+                </p>
+              </li>
+              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
+                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 3</p>
+                <p class="mt-1 text-sm font-bold leading-relaxed">
+                  <!-- TODO: 企画ハッシュタグが決まったら差し替え -->
+                  指定のハッシュタグを付けてSNSで共有
+                </p>
+              </li>
+            </ol>
+            <p class="flex items-center gap-3 text-sm font-bold text-[color:var(--ink-soft)]">
+              <img
+                src="./assets/img/sheep-letter.webp"
+                alt=""
+                class="sheep-deco w-14 sm:w-16"
+                loading="lazy"
+                decoding="async"
+              />
+              お手紙のひつじさんが、あなたのメッセージをお届けします。
+            </p>
+          </div>
+        </section>
+
+        <!-- ===== お手紙コーナー ===== -->
+        <section id="letter" class="card card-letter reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">お手紙</h2>
+          </div>
+          <div class="space-y-4 p-5 sm:p-7">
+            <p class="text-sm font-bold leading-relaxed sm:text-base">
+              お祝いメッセージ用の便せんです。ダウンロードして自由にお使いください。
+            </p>
+            <div class="grid items-center gap-5 md:grid-cols-[1.1fr_1fr]">
+              <button
+                type="button"
+                class="block w-full overflow-hidden rounded-2xl border-2 border-[color:var(--border)] bg-white p-2"
+                data-expandable-image
+                data-image-src="./assets/img/letter.webp"
+                data-image-alt="島村シャルロットお誕生日プロジェクト2026 便せん"
+                aria-label="便せんを拡大表示"
+              >
+                <img
+                  src="./assets/img/letter.webp"
+                  alt="島村シャルロットお誕生日プロジェクト2026 便せん"
+                  class="mx-auto h-auto w-full max-w-sm rounded-xl"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+              <div class="space-y-3">
+                <a
+                  href="./assets/downloads/letter.png"
+                  download
+                  class="btn-link flex items-center justify-between px-5 py-4 text-sm sm:text-base"
+                >
+                  <span>便せん（PNG）をダウンロード</span>
+                  <span aria-hidden="true">↘</span>
+                </a>
+                <p class="text-xs font-bold leading-relaxed text-[color:var(--ink-soft)]">
+                  クリックでプレビューを拡大できます。印刷して手書きしても、画像編集アプリで直接書き込んでもOKです。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 島村シャルロットとは ===== -->
+        <section id="about-charlotte" class="card card-about reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">島村シャルロットとは？</h2>
+          </div>
+          <div class="space-y-5 p-5 sm:p-7">
+            <p class="text-sm font-bold leading-relaxed sm:text-base">
+              島村シャルロット（Charlotte Shimamura）さんは、774inc.
+              に所属するVTuberです。2018年7月14日にデビューし、イメージカラーはブルー。誕生日は6月25日です。
+              （詳しいプロフィールは
+              <a
+                href="https://www.774.ai/talent/charlotte-shimamura"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link"
+                >公式プロフィール</a
+              >
+              をご覧ください）
+            </p>
+            <div class="grid gap-3 sm:grid-cols-3">
+              <a
+                href="https://www.youtube.com/@Charlotte_Shimamura"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-link flex items-center justify-between px-4 py-3 text-sm sm:text-base"
+              >
+                <span>YouTube</span><span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://twitter.com/Charlotte_Smmr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-link flex items-center justify-between px-4 py-3 text-sm sm:text-base"
+              >
+                <span>X (Twitter)</span><span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://www.twitch.tv/charlotte_shimamura"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-link flex items-center justify-between px-4 py-3 text-sm sm:text-base"
+              >
+                <span>Twitch</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== リンク ===== -->
+        <section id="links" class="card reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">関連リンク</h2>
+          </div>
+          <div class="grid gap-3 p-5 sm:p-7">
+            <a
+              href="https://www.774.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-link flex items-center justify-between px-4 py-3 text-sm sm:text-base"
+            >
+              <span>774inc. 公式サイト</span><span aria-hidden="true">↗</span>
+            </a>
+            <!-- TODO: 企画用SNSアカウントや過去の誕生日企画があればリンクを追加 -->
+          </div>
+        </section>
+      </main>
+
+      <!-- ===== フッター ===== -->
+      <footer class="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+        <section class="card p-6 sm:p-8">
+          <h2 class="section-title text-xl sm:text-2xl">島村シャルロット お誕生日企画 2026</h2>
+          <p class="mt-4 text-sm font-bold leading-relaxed sm:text-base">
+            ハッピーバースデー島村シャルロット！<br />
+            ここは島村シャルロットさんのファン有志による非公式の企画Webサイトです。公式・運営とは一切関係ありません。<br />
+            このページの内容はファンによる妄想企画であり、パラレルワールドです。
+            <!-- TODO: 問い合わせ先（企画用SNSのDM等）が決まったら追記 -->
+          </p>
+          <p class="mt-6 text-sm font-extrabold sm:text-base">クレジット</p>
+          <p class="mt-2 text-sm font-bold leading-relaxed sm:text-base">
+            <!-- TODO: イラスト・デザイン・制作などのクレジットを記入 -->
+            キービジュアル・便せん・ひつじイラスト：（記入予定）／ Webサイト制作：（記入予定）／
+            スペシャルサンクス：参加・拡散してくださった皆さん、島村シャルロット
+          </p>
+        </section>
+      </footer>
+    </div>
+
+    <!-- 画像拡大モーダル -->
+    <div id="image-modal" class="image-modal hidden" aria-hidden="true">
+      <div class="image-modal-backdrop" data-modal-close></div>
+      <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+        <button type="button" class="image-modal-close" data-modal-close aria-label="閉じる">×</button>
+        <img id="image-modal-img" src="" alt="" class="image-modal-img" />
+      </div>
+    </div>
+
+    <script>
+      // ローダー解除
+      (() => {
+        const body = document.body;
+        const reveal = () => body.classList.remove("is-loading");
+        window.addEventListener("load", () => setTimeout(reveal, 800), { once: true });
+        setTimeout(reveal, 3000);
+      })();
+
+      // 画像拡大モーダル
+      (() => {
+        const body = document.body;
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("image-modal-img");
+        const triggers = document.querySelectorAll("[data-expandable-image]");
+        const closeTargets = document.querySelectorAll("[data-modal-close]");
+        if (!modal || !modalImg || triggers.length === 0) return;
+
+        const closeModal = () => {
+          modal.classList.add("hidden");
+          modal.setAttribute("aria-hidden", "true");
+          body.classList.remove("modal-open");
+          modalImg.src = "";
+          modalImg.alt = "";
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => {
+            const src = trigger.getAttribute("data-image-src");
+            const alt = trigger.getAttribute("data-image-alt") || "";
+            if (!src) return;
+            modalImg.src = src;
+            modalImg.alt = alt;
+            modal.classList.remove("hidden");
+            modal.setAttribute("aria-hidden", "false");
+            body.classList.add("modal-open");
+          });
+        });
+
+        closeTargets.forEach((target) => target.addEventListener("click", closeModal));
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
+        });
+      })();
+    </script>
   </body>
 </html>

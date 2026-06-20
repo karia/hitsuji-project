@@ -6,7 +6,7 @@
     <title>島村シャルロット 非公式お誕生日企画 2026</title>
     <meta
       name="description"
-      content="VTuber 島村シャルロットさんの非公式お誕生日企画。便せんをダウンロードしてお手紙を書こう！キービジュアルと企画紹介、島村シャルロットさんの紹介を掲載しています。"
+      content="VTuber 島村シャルロットさんの非公式お誕生日企画。ファンのひつじたちが、お手紙・マインクラフト建築・ライトアップなどのお祝い企画を用意しました。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
-    <link rel="stylesheet" href="./assets/style.css?v=20260620-1" />
+    <link rel="stylesheet" href="./assets/style.css?v=20260620-2" />
   </head>
   <body
     class="site-body is-loading"
@@ -94,7 +94,7 @@
 
         <!-- ===== 追従ナビ ===== -->
         <nav aria-label="ページ内メニュー" class="site-nav reveal sticky top-3 z-20 p-2">
-          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
             <li>
               <a href="#about-project" class="nav-link inline-flex w-full items-center justify-center py-2"
                 >企画紹介</a
@@ -103,6 +103,16 @@
             <li>
               <a href="#letter" class="nav-link inline-flex w-full items-center justify-center py-2"
                 >お手紙</a
+              >
+            </li>
+            <li>
+              <a href="#minecraft" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >マイクラ</a
+              >
+            </li>
+            <li>
+              <a href="#lightup" class="nav-link inline-flex w-full items-center justify-center py-2"
+                >ライトアップ</a
               >
             </li>
             <li>
@@ -121,63 +131,95 @@
           <p
             class="mx-auto max-w-3xl text-center text-base font-bold leading-relaxed text-[color:var(--ink-soft)] sm:text-lg"
           >
-            6月25日はVTuber・島村シャルロットさんのお誕生日！<br />
-            ファン有志でお祝いするため、みんなでお手紙を書いて贈りましょう。
+            島村シャルロットさん、お誕生日おめでとうございます！<br />
+            ファンのひつじたちが、お祝いの気持ちを込めていくつかの企画を用意しました。
           </p>
         </section>
 
-        <!-- ===== 企画紹介 ===== -->
+        <!-- ===== 企画紹介（複数項目） ===== -->
         <section id="about-project" class="card reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <h2 class="section-title text-2xl">企画紹介</h2>
           </div>
           <div class="space-y-5 p-5 sm:p-7">
             <p class="text-sm font-bold leading-relaxed sm:text-base">
-              この企画は、島村シャルロットさんのお誕生日を、ファン有志でお祝いするための<strong>非公式お手紙企画</strong>です。<br />
-              専用の便せんをダウンロードして、シャルロットさんへの「おめでとう」の気持ちをお手紙にしたためてください。
+              今年のお誕生日も、ファンのひつじみんなでお祝いします。それぞれの企画はこちら！
             </p>
-            <ol class="grid gap-3 sm:grid-cols-3">
-              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
-                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 1</p>
-                <p class="mt-1 text-sm font-bold leading-relaxed">
-                  下の「お手紙」コーナーから便せんをダウンロード
-                </p>
+            <ul class="grid gap-4 sm:grid-cols-2">
+              <li>
+                <a href="#letter" class="project-item flex items-center gap-4 p-4">
+                  <img
+                    src="./assets/img/sheep-letter.webp"
+                    alt=""
+                    class="project-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    <span class="project-name">お手紙企画</span>
+                    <span class="project-desc">お祝いのお手紙を、みんなで集めました。</span>
+                  </span>
+                </a>
               </li>
-              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
-                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 2</p>
-                <p class="mt-1 text-sm font-bold leading-relaxed">
-                  印刷、または画像に直接お祝いメッセージを書く
-                </p>
+              <li>
+                <a href="#minecraft" class="project-item flex items-center gap-4 p-4">
+                  <img
+                    src="./assets/img/sheep-build.webp"
+                    alt=""
+                    class="project-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    <span class="project-name">マイクラ建築企画</span>
+                    <span class="project-desc">マインクラフトの世界で、お祝いの建築を製作中です。</span>
+                  </span>
+                </a>
               </li>
-              <li class="rounded-2xl border-2 border-[color:var(--border)] bg-[#f1f7ff] p-4">
-                <p class="text-sm font-extrabold text-[color:var(--ink-strong)]">STEP 3</p>
-                <p class="mt-1 text-sm font-bold leading-relaxed">
-                  <!-- TODO: 企画ハッシュタグが決まったら差し替え -->
-                  指定のハッシュタグを付けてSNSで共有
-                </p>
+              <li>
+                <a href="#lightup" class="project-item flex items-center gap-4 p-4">
+                  <img
+                    src="./assets/img/sheep-swim.webp"
+                    alt=""
+                    class="project-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    <span class="project-name">ライトアップ企画</span>
+                    <span class="project-desc"
+                      >江の島シーキャンドルを、イメージカラーのブルーに染めます。</span
+                    >
+                  </span>
+                </a>
               </li>
-            </ol>
-            <p class="flex items-center gap-3 text-sm font-bold text-[color:var(--ink-soft)]">
-              <img
-                src="./assets/img/sheep-letter.webp"
-                alt=""
-                class="sheep-deco w-14 sm:w-16"
-                loading="lazy"
-                decoding="async"
-              />
-              お手紙のひつじさんが、あなたのメッセージをお届けします。
-            </p>
+              <li>
+                <div class="project-item project-item--soon flex items-center gap-4 p-4">
+                  <img
+                    src="./assets/img/sheep-wait.webp"
+                    alt=""
+                    class="project-icon"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    <span class="project-name">そのほかの企画</span>
+                    <span class="project-desc">ほかにもお祝いを準備中…！ Coming Soon</span>
+                  </span>
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
 
         <!-- ===== お手紙コーナー ===== -->
         <section id="letter" class="card card-letter reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
-            <h2 class="section-title text-2xl">お手紙</h2>
+            <h2 class="section-title text-2xl">お手紙企画</h2>
           </div>
           <div class="space-y-4 p-5 sm:p-7">
             <p class="text-sm font-bold leading-relaxed sm:text-base">
-              お祝いメッセージ用の便せんです。ダウンロードして自由にお使いください。
+              ファンのひつじから、お祝いのお手紙をみんなで集めました。お手紙用の便せんはこちらです。
             </p>
             <div class="grid items-center gap-5 md:grid-cols-[1.1fr_1fr]">
               <button
@@ -206,10 +248,52 @@
                   <span aria-hidden="true">↘</span>
                 </a>
                 <p class="text-xs font-bold leading-relaxed text-[color:var(--ink-soft)]">
-                  クリックでプレビューを拡大できます。印刷して手書きしても、画像編集アプリで直接書き込んでもOKです。
+                  クリックでプレビューを拡大できます。
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ===== マイクラ建築企画 ===== -->
+        <section id="minecraft" class="card reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">マイクラ建築企画</h2>
+          </div>
+          <div class="space-y-4 p-5 sm:p-7">
+            <p class="flex items-center gap-3 text-sm font-bold leading-relaxed sm:text-base">
+              <img
+                src="./assets/img/sheep-build.webp"
+                alt=""
+                class="sheep-deco w-14 shrink-0 sm:w-16"
+                loading="lazy"
+                decoding="async"
+              />
+              建築のひつじたちが、マインクラフトの世界でお祝いの建築を製作中です。完成したスクリーンショットはこちらでお披露目します！
+            </p>
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <!-- TODO: マイクラのスクリーンショットが届いたら、この枠を画像に差し替える -->
+              <div class="shot-frame">Coming Soon</div>
+              <div class="shot-frame">Coming Soon</div>
+              <div class="shot-frame">Coming Soon</div>
+              <div class="shot-frame">Coming Soon</div>
+              <div class="shot-frame">Coming Soon</div>
+              <div class="shot-frame">Coming Soon</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== ライトアップ企画 ===== -->
+        <section id="lightup" class="card reveal">
+          <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
+            <h2 class="section-title text-2xl">ライトアップ企画</h2>
+          </div>
+          <div class="space-y-4 p-5 sm:p-7">
+            <p class="text-sm font-bold leading-relaxed sm:text-base">
+              「海の上の巨大なキャンドルに灯を灯そう！」をテーマに、江の島シーキャンドル（展望灯台）を、島村シャルロットさんのイメージカラーである<strong>ブルー</strong>にライトアップします。
+            </p>
+            <!-- TODO: ライトアップ当日の写真が用意できたら、この枠を画像に差し替える -->
+            <div class="shot-frame shot-frame--wide">Coming Soon</div>
           </div>
         </section>
 
@@ -268,6 +352,14 @@
           </div>
           <div class="grid gap-3 p-5 sm:p-7">
             <a
+              href="https://x.com/hitsuji_world"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-link flex items-center justify-between px-4 py-3 text-sm sm:text-base"
+            >
+              <span>お誕生日企画 公式X（@hitsuji_world）</span><span aria-hidden="true">↗</span>
+            </a>
+            <a
               href="https://www.774.ai/"
               target="_blank"
               rel="noopener noreferrer"
@@ -275,7 +367,6 @@
             >
               <span>774inc. 公式サイト</span><span aria-hidden="true">↗</span>
             </a>
-            <!-- TODO: 企画用SNSアカウントや過去の誕生日企画があればリンクを追加 -->
           </div>
         </section>
       </main>
@@ -286,9 +377,13 @@
           <h2 class="section-title text-xl sm:text-2xl">島村シャルロット お誕生日企画 2026</h2>
           <p class="mt-4 text-sm font-bold leading-relaxed sm:text-base">
             ハッピーバースデー島村シャルロット！<br />
-            ここは島村シャルロットさんのファン有志による非公式の企画Webサイトです。公式・運営とは一切関係ありません。<br />
-            このページの内容はファンによる妄想企画であり、パラレルワールドです。
-            <!-- TODO: 問い合わせ先（企画用SNSのDM等）が決まったら追記 -->
+            ここは島村シャルロットさんのファン（ひつじ）有志による非公式の企画Webサイトです。公式・運営とは一切関係ありません。<br />
+            このページの内容はファンによる妄想企画であり、パラレルワールドです。<br />
+            お問い合わせは
+            <a href="https://x.com/hitsuji_world" target="_blank" rel="noopener noreferrer" class="text-link"
+              >公式X（@hitsuji_world）</a
+            >
+            のDMまでお願いします。
           </p>
           <p class="mt-6 text-sm font-extrabold sm:text-base">クレジット</p>
           <p class="mt-2 text-sm font-bold leading-relaxed sm:text-base">

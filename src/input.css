@@ -130,8 +130,8 @@
   /* タイトルロゴをキービジュアル左上の空き領域に重ねる */
   .hero-logo-wrap {
     position: absolute;
-    top: 4%;
-    left: 3%;
+    top: 8%;
+    left: 6%;
     z-index: 2;
     width: clamp(150px, 40%, 380px);
   }

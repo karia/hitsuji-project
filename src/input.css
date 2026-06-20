@@ -127,11 +127,11 @@
     }
   }
 
-  /* タイトルロゴをキービジュアル右下の空き領域に重ねる */
+  /* タイトルロゴをキービジュアル左上の空き領域に重ねる */
   .hero-logo-wrap {
     position: absolute;
-    right: 3%;
-    bottom: 4%;
+    top: 4%;
+    left: 3%;
     z-index: 2;
     width: clamp(150px, 40%, 380px);
   }
@@ -155,7 +155,13 @@
     z-index: 1;
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55));
+    /* ロゴ形状に沿った白フチ（背景のパーティクル上での視認性確保）＋落ち影 */
+    --logo-edge: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(2px 0 0 var(--logo-edge)) drop-shadow(-2px 0 0 var(--logo-edge))
+      drop-shadow(0 2px 0 var(--logo-edge)) drop-shadow(0 -2px 0 var(--logo-edge))
+      drop-shadow(1.4px 1.4px 0 var(--logo-edge)) drop-shadow(-1.4px 1.4px 0 var(--logo-edge))
+      drop-shadow(1.4px -1.4px 0 var(--logo-edge)) drop-shadow(-1.4px -1.4px 0 var(--logo-edge))
+      drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55));
   }
 
   /* 背後のホログラム調グロウ板 */

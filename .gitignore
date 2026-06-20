@@ -1,1 +1,7 @@
 node_modules/
+
+# 作業用の素材一時置き場（正式なソースは raw/images/）
+tmp/
+
+# WSL の Zone.Identifier 副ストリーム
+*:Zone.Identifier

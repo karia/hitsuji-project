@@ -360,22 +360,6 @@
     text-shadow: 0 0 16px rgba(82, 208, 255, 0.45);
   }
 
-  .hero-badge {
-    font-family: "Orbitron", sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    color: #1a1205;
-    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
-    box-shadow: 0 0 22px rgba(242, 179, 71, 0.4);
-  }
-
-  .hero-date {
-    font-family: "Orbitron", sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--cyan);
-  }
-
   /* ===== ナビ（ハンバーガートグル） ===== */
   .nav-toggle {
     position: fixed;

@@ -18,6 +18,10 @@ const displayImages = [
   ["sheep-build", "sheep-build", 480],
   ["sheep-wait", "sheep-wait", 480],
   ["sheep-swim", "sheep-swim", 480],
+  ["project-minecraft", "project-minecraft", 1024],
+  ["project-lightup", "project-lightup", 1024],
+  ["project-letter", "project-letter", 1024],
+  ["project-charlotte", "project-charlotte", 1024],
 ];
 
 // ダウンロード用 PNG（高品質・リサイズなし）

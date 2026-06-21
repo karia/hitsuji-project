@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
-    <link rel="stylesheet" href="./assets/style.css?v=20260621-11" />
+    <link rel="stylesheet" href="./assets/style.css?v=20260622-2" />
   </head>
   <body
     class="site-body is-loading"
@@ -716,6 +716,28 @@
         );
 
         map.forEach((_link, section) => observer.observe(section));
+      })();
+
+      // 背景星空の微パララックス（スクロール量を --sy に反映）
+      (() => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const body = document.body;
+        let ticking = false;
+        const update = () => {
+          body.style.setProperty("--sy", `${window.scrollY}px`);
+          ticking = false;
+        };
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(update);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+        update();
       })();
     </script>
   </body>

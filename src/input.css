@@ -309,8 +309,15 @@
   .hero-subtitle {
     /* サイズは .section-title と同値（別ルールのまま。将来分けたくなれば片方を変更） */
     font-size: var(--fs-subtitle);
-    font-family: "Dela Gothic One", "Zen Kaku Gothic New", sans-serif;
-    color: var(--ink-soft);
+    /* ピクセル調でレトロ宇宙ゲーム感。単一ウェイトなので font-bold は付けない */
+    font-family: "DotGothic16", "Zen Kaku Gothic New", sans-serif;
+    letter-spacing: 0.08em;
+    /* タイトルとして目立たせる：cyan→gold のグラデ文字＋ネオングロウ */
+    background: linear-gradient(90deg, var(--cyan), var(--gold-soft) 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 16px rgba(82, 208, 255, 0.4);
   }
 
   .hero-badge {

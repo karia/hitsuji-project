@@ -32,6 +32,8 @@
     /* 本文の基準サイズ。本文系は個別指定を持たずこれを継承して統一する */
     font-size: var(--fs-body);
     background:
+      radial-gradient(closest-side at 18% 12%, rgba(82, 208, 255, 0.1), transparent 70%),
+      radial-gradient(closest-side at 85% 22%, rgba(140, 110, 255, 0.1), transparent 72%),
       radial-gradient(78% 48% at 50% -8%, rgba(242, 179, 71, 0.2), transparent 60%),
       radial-gradient(90% 60% at 50% 116%, rgba(40, 90, 210, 0.22), transparent 60%),
       linear-gradient(180deg, #070b1c 0%, #04060f 60%, #03040b 100%);
@@ -58,8 +60,29 @@
       radial-gradient(1px 1px at 330px 300px, rgba(255, 255, 255, 0.7), transparent);
     background-repeat: repeat;
     background-size: 360px 360px;
+    /* スクロール量の数%だけ背景をずらす微パララックス（遠景＝ゆっくり） */
+    background-position: center calc(var(--sy, 0px) * 0.04);
     opacity: 0.55;
     animation: twinkle 6s ease-in-out infinite alternate;
+  }
+
+  /* 近景の星（大きめ・明るめ・まばら）。遠景より速く動かして奥行きを出す */
+  .site-body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(2px 2px at 60px 80px, rgba(255, 255, 255, 0.95), transparent),
+      radial-gradient(2.5px 2.5px at 320px 200px, rgba(180, 220, 255, 0.9), transparent),
+      radial-gradient(2px 2px at 200px 420px, rgba(255, 226, 170, 0.9), transparent),
+      radial-gradient(2.5px 2.5px at 440px 360px, rgba(255, 255, 255, 0.85), transparent);
+    background-repeat: repeat;
+    background-size: 520px 520px;
+    background-position: center calc(var(--sy, 0px) * 0.1);
+    opacity: 0.5;
+    animation: twinkle 8s ease-in-out 1s infinite alternate;
   }
 
   @keyframes twinkle {
@@ -983,7 +1006,8 @@
     .hero-bg-img,
     .hero-char-img,
     .hero-logo-wrap,
-    .site-body::before {
+    .site-body::before,
+    .site-body::after {
       animation: none !important;
       transition: none !important;
       opacity: 1 !important;
@@ -992,6 +1016,9 @@
     }
     .site-body::before {
       opacity: 0.5 !important;
+    }
+    .site-body::after {
+      opacity: 0.45 !important;
     }
     /* 右寄せ（モーション無効でも位置は維持） */
     .hero-char-img {

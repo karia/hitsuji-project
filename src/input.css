@@ -736,6 +736,15 @@
     object-fit: cover;
   }
 
+  .project-name {
+    display: block;
+    padding: 0.55rem 0.5rem 0.6rem;
+    text-align: center;
+    font-size: var(--fs-body);
+    font-weight: 800;
+    color: var(--ink);
+  }
+
   /* ===== エンブレム用プレート ===== */
   .emblem-plate {
     display: inline-flex;

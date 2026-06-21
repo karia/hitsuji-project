@@ -706,7 +706,9 @@
 
   /* ===== 企画紹介の項目 ===== */
   .project-item {
+    display: block;
     height: 100%;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: rgba(18, 27, 60, 0.7);
@@ -726,30 +728,12 @@
       0 0 18px rgba(82, 208, 255, 0.2);
   }
 
-  .project-icon {
-    width: 56px;
-    height: 56px;
-    flex-shrink: 0;
-    object-fit: contain;
-    padding: 3px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border);
-  }
-
-  .project-name {
+  .project-image {
     display: block;
-    font-weight: 800;
-    color: var(--ink);
-  }
-
-  .project-desc {
-    display: block;
-    margin-top: 0.15rem;
-    font-size: var(--fs-body);
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--ink-soft);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
   }
 
   /* ===== エンブレム用プレート ===== */

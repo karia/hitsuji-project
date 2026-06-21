@@ -75,7 +75,7 @@
 ### マイクラ建築企画
 
 - [ ] **ワールドデータのダウンロードリンクを設定**（`docs/index.html` の「6月25日 公開予定」表記を実際の Google ドライブリンクに差し替え）
-- [ ] マイクラのスクリーンショットを用意し、`COMING SOON` の枠（6枠）を実画像に差し替え（`raw/images/` に置き `npm run build:images` 経由）
+- [x] マイクラのスクリーンショットを用意し、`COMING SOON` の枠（6枠）を実画像に差し替え（`raw/images/` に置き `npm run build:images` 経由）
 
 ### ライトアップ企画
 

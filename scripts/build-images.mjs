@@ -22,6 +22,12 @@ const displayImages = [
   ["project-lightup", "project-lightup", 1024],
   ["project-letter", "project-letter", 1024],
   ["project-charlotte", "project-charlotte", 1024],
+  ["mc-ss-01", "mc-ss-01", 1280],
+  ["mc-ss-02", "mc-ss-02", 1280],
+  ["mc-ss-03", "mc-ss-03", 1280],
+  ["mc-ss-04", "mc-ss-04", 1280],
+  ["mc-ss-05", "mc-ss-05", 1280],
+  ["mc-ss-06", "mc-ss-06", 1280],
 ];
 
 // ダウンロード用 PNG（高品質・リサイズなし）

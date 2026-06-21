@@ -757,30 +757,35 @@
     box-shadow: 0 0 22px rgba(82, 208, 255, 0.25);
   }
 
-  /* ===== スクリーンショット枠（プレースホルダ） ===== */
-  .shot-frame {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 16 / 9;
-    border: 1px dashed rgba(82, 208, 255, 0.4);
+  /* ===== スクリーンショット（クリックで拡大） ===== */
+  .shot {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(82, 208, 255, 0.04) 0,
-      rgba(82, 208, 255, 0.04) 10px,
-      rgba(82, 208, 255, 0.08) 10px,
-      rgba(82, 208, 255, 0.08) 20px
-    );
-    color: var(--cyan);
-    font-family: "Orbitron", sans-serif;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    background: rgba(18, 27, 60, 0.7);
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
-  .shot-frame--wide {
-    aspect-ratio: 16 / 7;
+  .shot:hover {
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.4),
+      0 0 18px rgba(82, 208, 255, 0.2);
+  }
+
+  .shot-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   /* ===== 画像キャプション ===== */

@@ -186,10 +186,10 @@
   /* タイトルロゴをキービジュアル左上の空き領域に重ねる */
   .hero-logo-wrap {
     position: absolute;
-    top: 8%;
+    top: 12%;
     left: 6%;
     z-index: 2;
-    width: clamp(170px, 44%, 440px);
+    width: clamp(185px, 48%, 485px);
   }
 
   .hero-logo-wrap::before {
@@ -307,7 +307,9 @@
   }
 
   .hero-subtitle {
-    font-size: var(--fs-title);
+    /* サイズは .section-title と同値（別ルールのまま。将来分けたくなれば片方を変更） */
+    font-size: var(--fs-subtitle);
+    font-family: "Dela Gothic One", "Zen Kaku Gothic New", sans-serif;
     color: var(--ink-soft);
   }
 

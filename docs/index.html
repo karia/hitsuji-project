@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
-    <link rel="stylesheet" href="./assets/style.css?v=20260621-3" />
+    <link rel="stylesheet" href="./assets/style.css?v=20260621-4" />
   </head>
   <body
     class="site-body is-loading"
@@ -65,40 +65,6 @@
             <span class="hero-date text-base sm:text-lg">★ 6.25</span>
           </p>
         </section>
-
-        <!-- ===== 追従ナビ ===== -->
-        <nav aria-label="ページ内メニュー" class="site-nav section-shell reveal sticky top-3 z-20 p-2">
-          <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-            <li>
-              <a href="#about-project" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >企画紹介</a
-              >
-            </li>
-            <li>
-              <a href="#minecraft" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >マイクラ</a
-              >
-            </li>
-            <li>
-              <a href="#lightup" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >ライトアップ</a
-              >
-            </li>
-            <li>
-              <a href="#letter" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >お手紙</a
-              >
-            </li>
-            <li>
-              <a href="#about-charlotte" class="nav-link inline-flex w-full items-center justify-center py-2"
-                >島村シャルロットとは</a
-              >
-            </li>
-            <li>
-              <a href="#links" class="nav-link inline-flex w-full items-center justify-center py-2">リンク</a>
-            </li>
-          </ul>
-        </nav>
 
         <!-- ===== リード文（フルブリードの星雲バンド） ===== -->
         <section class="site-note-band full-bleed reveal py-10 sm:py-14">
@@ -465,6 +431,63 @@
           </p>
         </section>
       </footer>
+
+      <!-- ===== ナビゲーション（ハンバーガー + 全画面オーバーレイ） ===== -->
+      <button
+        type="button"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="nav-drawer"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <div id="nav-drawer" class="nav-drawer" aria-hidden="true">
+        <div class="nav-drawer-backdrop" data-nav-close></div>
+        <nav class="nav-panel" aria-label="ページ内メニュー">
+          <p class="nav-panel-eyebrow">Navigation</p>
+          <ul class="nav-menu">
+            <li>
+              <a href="#about-project" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">01</span>
+                <span class="nav-item-label">企画紹介</span>
+              </a>
+            </li>
+            <li>
+              <a href="#minecraft" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">02</span>
+                <span class="nav-item-label">マイクラ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#lightup" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">03</span>
+                <span class="nav-item-label">ライトアップ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#letter" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">04</span>
+                <span class="nav-item-label">お手紙</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about-charlotte" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">05</span>
+                <span class="nav-item-label">島村シャルロットとは</span>
+              </a>
+            </li>
+            <li>
+              <a href="#links" class="nav-item" data-nav-link>
+                <span class="nav-item-no" aria-hidden="true">06</span>
+                <span class="nav-item-label">リンク</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
 
     <!-- 画像拡大モーダル -->
@@ -519,6 +542,98 @@
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
         });
+      })();
+
+      // ナビゲーション（ハンバーガー開閉 + フォーカストラップ）
+      (() => {
+        const body = document.body;
+        const toggle = document.getElementById("nav-toggle");
+        const drawer = document.getElementById("nav-drawer");
+        if (!toggle || !drawer) return;
+
+        const closers = drawer.querySelectorAll("[data-nav-close]");
+        const links = drawer.querySelectorAll("[data-nav-link]");
+        // トグルは枠外（☓）なのでトラップ対象に含める
+        const focusables = () => [toggle, ...drawer.querySelectorAll("a[href]")];
+        const isOpen = () => body.classList.contains("nav-open");
+        let lastFocus = null;
+
+        const open = () => {
+          lastFocus = document.activeElement;
+          body.classList.add("nav-open");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", "メニューを閉じる");
+          drawer.setAttribute("aria-hidden", "false");
+          const first = drawer.querySelector("a[href]");
+          if (first) first.focus();
+        };
+
+        const close = () => {
+          body.classList.remove("nav-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "メニューを開く");
+          drawer.setAttribute("aria-hidden", "true");
+          if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+        };
+
+        toggle.addEventListener("click", () => (isOpen() ? close() : open()));
+        closers.forEach((target) => target.addEventListener("click", close));
+        // ページ内アンカーへ移動するのでメニューは閉じる
+        links.forEach((link) => link.addEventListener("click", close));
+
+        document.addEventListener("keydown", (event) => {
+          if (!isOpen()) return;
+          if (event.key === "Escape") {
+            close();
+            return;
+          }
+          if (event.key !== "Tab") return;
+          const items = focusables();
+          if (items.length === 0) return;
+          const firstItem = items[0];
+          const lastItem = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === firstItem) {
+            event.preventDefault();
+            lastItem.focus();
+          } else if (!event.shiftKey && document.activeElement === lastItem) {
+            event.preventDefault();
+            firstItem.focus();
+          }
+        });
+      })();
+
+      // スクロールスパイ（現在地ハイライト）
+      (() => {
+        if (!("IntersectionObserver" in window)) return;
+        const links = [...document.querySelectorAll("[data-nav-link]")];
+        if (links.length === 0) return;
+
+        const map = new Map();
+        links.forEach((link) => {
+          const id = (link.getAttribute("href") || "").slice(1);
+          const section = id && document.getElementById(id);
+          if (section) map.set(section, link);
+        });
+        if (map.size === 0) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const current = map.get(entry.target);
+              if (!current) return;
+              links.forEach((link) => {
+                link.classList.remove("is-current");
+                link.removeAttribute("aria-current");
+              });
+              current.classList.add("is-current");
+              current.setAttribute("aria-current", "true");
+            });
+          },
+          { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+        );
+
+        map.forEach((_link, section) => observer.observe(section));
       })();
     </script>
   </body>

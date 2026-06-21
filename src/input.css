@@ -20,11 +20,17 @@
     --rhythm-sm: clamp(1.75rem, 4vw, 2.75rem);
     /* HUD パネルの切り欠き角 */
     --notch: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+    /* 文字サイズ階層（タイトル > サブタイトル > 本文）。本文は全要素で同一に統一 */
+    --fs-title: clamp(1.55rem, 1.25rem + 1.5vw, 2.15rem);
+    --fs-subtitle: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+    --fs-body: clamp(0.95rem, 0.88rem + 0.32vw, 1.0625rem);
   }
 
   /* ===== ページ全体（宇宙ダーク） ===== */
   .site-body {
     color: var(--ink);
+    /* 本文の基準サイズ。本文系は個別指定を持たずこれを継承して統一する */
+    font-size: var(--fs-body);
     background:
       radial-gradient(78% 48% at 50% -8%, rgba(242, 179, 71, 0.2), transparent 60%),
       radial-gradient(90% 60% at 50% 116%, rgba(40, 90, 210, 0.22), transparent 60%),
@@ -180,10 +186,10 @@
   /* タイトルロゴをキービジュアル左上の空き領域に重ねる */
   .hero-logo-wrap {
     position: absolute;
-    top: 8%;
+    top: 12%;
     left: 6%;
     z-index: 2;
-    width: clamp(150px, 40%, 380px);
+    width: clamp(185px, 48%, 485px);
   }
 
   .hero-logo-wrap::before {
@@ -205,6 +211,8 @@
     z-index: 1;
     width: 100%;
     height: auto;
+    /* 少し左に傾ける（hero-logo-wrap は reduced-motion で transform リセットされるため img 側に付与） */
+    transform: rotate(-4deg);
     /* ロゴ形状に沿った白フチ（背景のパーティクル上での視認性確保）＋落ち影 */
     --logo-edge: rgba(255, 255, 255, 0.95);
     filter: drop-shadow(2px 0 0 var(--logo-edge)) drop-shadow(-2px 0 0 var(--logo-edge))
@@ -299,7 +307,14 @@
   }
 
   .hero-subtitle {
-    color: var(--ink-soft);
+    /* ドット感が出るよう .section-title より大きめ（hero副題は独立ルール） */
+    font-size: clamp(1.7rem, 1.3rem + 2vw, 2.6rem);
+    /* ピクセル調でレトロ宇宙ゲーム感。単一ウェイトなので font-bold は付けない */
+    font-family: "DotGothic16", "Zen Kaku Gothic New", sans-serif;
+    letter-spacing: 0.08em;
+    /* 白文字＋ごく薄い cyan グロウで宇宙感を残す */
+    color: #fff;
+    text-shadow: 0 0 16px rgba(82, 208, 255, 0.45);
   }
 
   .hero-badge {
@@ -321,8 +336,8 @@
   /* ===== ナビ（ハンバーガートグル） ===== */
   .nav-toggle {
     position: fixed;
-    top: clamp(0.75rem, 2vw, 1.25rem);
-    right: clamp(0.75rem, 2vw, 1.25rem);
+    top: calc(clamp(0.75rem, 2vw, 1.25rem) + env(safe-area-inset-top, 0px));
+    right: calc(clamp(0.75rem, 2vw, 1.25rem) + env(safe-area-inset-right, 0px));
     z-index: 45;
     display: flex;
     align-items: center;
@@ -404,6 +419,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* ノッチ/ホームバーを避ける。dvh で動的ツールバー下でも全面を覆う */
+    min-height: 100dvh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -548,6 +567,11 @@
       linear-gradient(180deg, rgba(11, 18, 48, 0) 0%, rgba(11, 18, 48, 0.55) 50%, rgba(11, 18, 48, 0) 100%);
   }
 
+  /* リード文はサブタイトル階層 */
+  .site-note-band p {
+    font-size: var(--fs-subtitle);
+  }
+
   /* ===== カード（HUD パネル） ===== */
   /* 切り欠き角 + ホログラム調エッジ + コーナーブラケットで角丸カードから脱却 */
   .card {
@@ -639,6 +663,7 @@
   }
 
   .section-title {
+    font-size: var(--fs-subtitle);
     color: var(--ink);
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -721,7 +746,7 @@
   .project-desc {
     display: block;
     margin-top: 0.15rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-body);
     font-weight: 500;
     line-height: 1.5;
     color: var(--ink-soft);
@@ -769,7 +794,7 @@
   .img-caption {
     margin-top: 0.5rem;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: var(--fs-body);
     font-weight: 500;
     line-height: 1.5;
     color: var(--ink-soft);
@@ -821,7 +846,7 @@
 
   .manual-body {
     padding: 1rem 1.1rem 1.2rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-body);
     font-weight: 500;
     line-height: 1.7;
     color: var(--ink-soft);

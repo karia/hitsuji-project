@@ -13,6 +13,13 @@
     --border: rgba(110, 170, 255, 0.28);
     --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     --radius: 6px;
+    /* レイアウトの幅・余白リズム（脱・テンプレ化） */
+    --shell-max: 72rem;
+    --gutter: clamp(1rem, 4vw, 2rem);
+    --rhythm-lg: clamp(3.5rem, 8vw, 6rem);
+    --rhythm-sm: clamp(1.75rem, 4vw, 2.75rem);
+    /* HUD パネルの切り欠き角 */
+    --notch: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
   }
 
   /* ===== ページ全体（宇宙ダーク） ===== */
@@ -24,6 +31,8 @@
       linear-gradient(180deg, #070b1c 0%, #04060f 60%, #03040b 100%);
     background-attachment: fixed;
     min-height: 100%;
+    /* フルブリード要素（100vw）由来の横スクロールを抑止。clip は sticky を壊さない */
+    overflow-x: clip;
   }
 
   /* 星空 */
@@ -109,16 +118,57 @@
   }
 
   /* ===== レイアウト ===== */
+  /* フル幅フロー。幅は各セクションが .section-shell で自己管理する */
   .site-main {
+    width: 100%;
+    max-width: none;
     margin-inline: auto;
-    max-width: 72rem;
+    counter-reset: hud;
+  }
+
+  /* contained 用コンテナ。min() で小画面は自動ガター、大画面は shell-max で頭打ち */
+  .section-shell {
+    width: min(var(--shell-max), 100% - var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  /* 背景帯などを画面端まで届かせる */
+  .full-bleed {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  /* 均一 gap をやめ、関連度で変化する縦リズムを与える */
+  .site-main > * + * {
+    margin-top: var(--rhythm-sm);
+  }
+
+  .site-main > .rhythm-lg {
+    margin-top: var(--rhythm-lg);
   }
 
   /* ===== ヒーロー ===== */
   .hero-stage {
     position: relative;
+    isolation: isolate;
     text-align: center;
     padding-inline: 0.75rem;
+  }
+
+  /* 画面上部に宇宙空間が広がる印象を出すフルブリードのオーラ */
+  .hero-stage::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2rem;
+    z-index: -1;
+    width: 100vw;
+    height: 130%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background:
+      radial-gradient(60% 70% at 50% 18%, rgba(82, 208, 255, 0.16), transparent 62%),
+      radial-gradient(42% 52% at 72% 8%, rgba(242, 179, 71, 0.12), transparent 60%);
   }
 
   @media (min-width: 640px) {
@@ -293,46 +343,87 @@
     box-shadow: inset 0 0 0 1px rgba(82, 208, 255, 0.4);
   }
 
-  /* ===== リード文 ===== */
-  .site-note {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--panel);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(4px);
+  /* ===== リード文（フルブリードの星雲バンド） ===== */
+  .site-note-band {
+    position: relative;
+    border-block: 1px solid var(--border);
+    background:
+      radial-gradient(60% 130% at 50% 50%, rgba(82, 208, 255, 0.12), transparent 70%),
+      linear-gradient(180deg, rgba(11, 18, 48, 0) 0%, rgba(11, 18, 48, 0.55) 50%, rgba(11, 18, 48, 0) 100%);
   }
 
-  /* ===== カード ===== */
+  /* ===== カード（HUD パネル） ===== */
+  /* 切り欠き角 + ホログラム調エッジ + コーナーブラケットで角丸カードから脱却 */
   .card {
     position: relative;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, rgba(16, 24, 54, 0.82), rgba(9, 14, 36, 0.82));
-    box-shadow:
-      var(--shadow),
-      inset 0 1px 0 rgba(120, 180, 255, 0.08);
-    overflow: hidden;
+    isolation: isolate;
+    clip-path: var(--notch);
+    /* 要素背景＝エッジのホログラムグラデ（::before 内側塗りとの差分で枠線に見せる） */
+    background: linear-gradient(
+      135deg,
+      var(--cyan) 0%,
+      rgba(110, 170, 255, 0.35) 28%,
+      rgba(110, 170, 255, 0.18) 50%,
+      rgba(110, 170, 255, 0.35) 72%,
+      var(--gold) 100%
+    );
+    /* drop-shadow は clip-path 形状に追従する（box-shadow は切り欠きで欠ける） */
+    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 22px rgba(82, 208, 255, 0.12));
     backdrop-filter: blur(4px);
   }
 
+  /* パネル本体の塗り。1.5px インセットでエッジグラデを縁取りとして残す + スキャンライン */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 1.5px;
+    z-index: -1;
+    clip-path: var(--notch);
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(130, 180, 255, 0.045) 0,
+        rgba(130, 180, 255, 0.045) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      linear-gradient(180deg, rgba(16, 24, 54, 0.92), rgba(9, 14, 36, 0.94));
+  }
+
+  /* 切り欠き角（左上・右下）と対になる、角型コーナーへの L 字ブラケット（右上・左下） */
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.75;
+    background:
+      linear-gradient(var(--cyan), var(--cyan)) 100% 0 / 16px 2px no-repeat,
+      linear-gradient(var(--cyan), var(--cyan)) 100% 0 / 2px 16px no-repeat,
+      linear-gradient(var(--cyan), var(--cyan)) 0 100% / 16px 2px no-repeat,
+      linear-gradient(var(--cyan), var(--cyan)) 0 100% / 2px 16px no-repeat;
+  }
+
+  /* ===== カードヘッダ（連番つき HUD 見出し） ===== */
   .card-head {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.3rem 0.7rem;
-    background: linear-gradient(180deg, var(--panel-head), transparent);
-    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    background: linear-gradient(90deg, var(--panel-head), transparent 72%);
   }
 
-  .card-head::after {
+  /* 旧・全幅下線バーの代わりに左端の縦アクセント罫 */
+  .card-head::before {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -1px;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--cyan) 45%, transparent 80%);
+    top: 0.55rem;
+    bottom: 0.55rem;
+    width: 4px;
+    background: linear-gradient(180deg, var(--gold), var(--cyan));
   }
 
   .eyebrow {
@@ -342,6 +433,13 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--cyan);
+  }
+
+  /* セクション連番（01 — PROJECTS …）。先頭の番号は gold で強調 */
+  .eyebrow::before {
+    content: counter(hud, decimal-leading-zero) "  —  ";
+    counter-increment: hud;
+    color: var(--gold-soft);
   }
 
   .section-title {

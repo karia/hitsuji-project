@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
-    <link rel="stylesheet" href="./assets/style.css?v=20260621-2" />
+    <link rel="stylesheet" href="./assets/style.css?v=20260621-3" />
   </head>
   <body
     class="site-body is-loading"
@@ -28,7 +28,7 @@
     <div id="page-loader" class="page-loader" aria-hidden="true"></div>
 
     <div class="page-shell">
-      <main class="site-main grid w-full gap-8 px-4 py-8 sm:px-6 lg:px-8">
+      <main class="site-main w-full py-8">
         <!-- ===== ヒーロー / タイトルロゴ＆キービジュアル ===== -->
         <section class="hero-stage reveal pb-2 sm:pb-4">
           <div class="hero-image-wrap relative mx-auto w-full max-w-4xl">
@@ -67,7 +67,7 @@
         </section>
 
         <!-- ===== 追従ナビ ===== -->
-        <nav aria-label="ページ内メニュー" class="site-nav reveal sticky top-3 z-20 p-2">
+        <nav aria-label="ページ内メニュー" class="site-nav section-shell reveal sticky top-3 z-20 p-2">
           <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
             <li>
               <a href="#about-project" class="nav-link inline-flex w-full items-center justify-center py-2"
@@ -100,16 +100,18 @@
           </ul>
         </nav>
 
-        <!-- ===== リード文 ===== -->
-        <section class="site-note reveal p-5 sm:p-7">
-          <p class="mx-auto max-w-3xl text-center text-base font-bold leading-relaxed sm:text-lg">
-            シャルちゃん、お誕生日おめでとうございます！<br />
-            ひつじたちが、お祝いの気持ちを乗せた「太陽舟」を漕ぎ出しました。
-          </p>
+        <!-- ===== リード文（フルブリードの星雲バンド） ===== -->
+        <section class="site-note-band full-bleed reveal py-10 sm:py-14">
+          <div class="section-shell">
+            <p class="mx-auto max-w-3xl text-center text-base font-bold leading-relaxed sm:text-lg">
+              シャルちゃん、お誕生日おめでとうございます！<br />
+              ひつじたちが、お祝いの気持ちを乗せた「太陽舟」を漕ぎ出しました。
+            </p>
+          </div>
         </section>
 
         <!-- ===== 企画紹介（複数項目） ===== -->
-        <section id="about-project" class="card reveal">
+        <section id="about-project" class="card section-shell rhythm-lg reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Projects</p>
             <h2 class="section-title text-2xl">企画紹介</h2>
@@ -171,7 +173,7 @@
         </section>
 
         <!-- ===== マイクラ建築企画（島村建設宇宙事業部） ===== -->
-        <section id="minecraft" class="card reveal">
+        <section id="minecraft" class="card section-shell reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Construction</p>
             <h2 class="section-title text-2xl">マイクラ建築企画</h2>
@@ -250,7 +252,7 @@
         </section>
 
         <!-- ===== ライトアップ企画 ===== -->
-        <section id="lightup" class="card reveal">
+        <section id="lightup" class="card section-shell reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Light Up</p>
             <h2 class="section-title text-2xl">ライトアップ企画</h2>
@@ -306,7 +308,7 @@
         </section>
 
         <!-- ===== お手紙コーナー ===== -->
-        <section id="letter" class="card reveal">
+        <section id="letter" class="card section-shell reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Letter</p>
             <h2 class="section-title text-2xl">お手紙企画</h2>
@@ -355,7 +357,7 @@
         </section>
 
         <!-- ===== 島村シャルロットとは ===== -->
-        <section id="about-charlotte" class="card reveal">
+        <section id="about-charlotte" class="card section-shell rhythm-lg reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Profile</p>
             <h2 class="section-title text-2xl">島村シャルロットとは？</h2>
@@ -404,7 +406,7 @@
         </section>
 
         <!-- ===== リンク ===== -->
-        <section id="links" class="card reveal">
+        <section id="links" class="card section-shell reveal">
           <div class="card-head px-5 py-3 sm:px-7 sm:py-4">
             <p class="eyebrow">Links</p>
             <h2 class="section-title text-2xl">関連リンク</h2>

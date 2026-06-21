@@ -189,7 +189,7 @@
     top: 8%;
     left: 6%;
     z-index: 2;
-    width: clamp(150px, 40%, 380px);
+    width: clamp(170px, 44%, 440px);
   }
 
   .hero-logo-wrap::before {
@@ -211,6 +211,8 @@
     z-index: 1;
     width: 100%;
     height: auto;
+    /* 少し左に傾ける（hero-logo-wrap は reduced-motion で transform リセットされるため img 側に付与） */
+    transform: rotate(-4deg);
     /* ロゴ形状に沿った白フチ（背景のパーティクル上での視認性確保）＋落ち影 */
     --logo-edge: rgba(255, 255, 255, 0.95);
     filter: drop-shadow(2px 0 0 var(--logo-edge)) drop-shadow(-2px 0 0 var(--logo-edge))
@@ -305,7 +307,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--fs-subtitle);
+    font-size: var(--fs-title);
     color: var(--ink-soft);
   }
 
@@ -655,7 +657,7 @@
   }
 
   .section-title {
-    font-size: var(--fs-title);
+    font-size: var(--fs-subtitle);
     color: var(--ink);
     font-weight: 700;
     letter-spacing: 0.02em;

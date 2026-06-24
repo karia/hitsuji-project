@@ -29,6 +29,7 @@ const displayImages = [
   ["mc-ss-04", "mc-ss-04", 1280],
   ["mc-ss-05", "mc-ss-05", 1280],
   ["mc-ss-06", "mc-ss-06", 1280],
+  ["invite", "invite", 1280],
 ];
 
 // ダウンロード用 PNG（高品質・リサイズなし）
